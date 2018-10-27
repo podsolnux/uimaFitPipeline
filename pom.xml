@@ -44,8 +44,11 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
+                            <!--<mainClass>-->
+                                <!--de.kulyasova.natalia.termExtraction.ui.LemmaExtraktor-->
+                            <!--</mainClass>-->
                             <mainClass>
-                                de.kulyasova.natalia.termExtraction.ui.LemmaExtraktor
+                                de.kulyasova.natalia.termExtraction.processing.Pipeline
                             </mainClass>
                         </manifest>
                     </archive>

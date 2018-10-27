@@ -50,9 +50,35 @@ public class Pipeline {
 //        System.out.println("lemmas = " + filtered);
 
         File file = new File("/home/natalia/IdeaProjects/uimaFitPipeline/src/main/resources/stopwords.txt");
-        System.out.println("file: "+file.toURI().toURL());
+        URL fileURL = file.toURI().toURL();
+        System.out.println("uri from file: "+ fileURL);
 
-        URL resource = Pipeline.class.getResource("/stopwords.txt");
-        System.out.println("classpath: "+resource);
+        URL jarURL = Pipeline.class.getResource("/stopwords.txt");
+        System.out.println("uri from classpath: "+jarURL);
+        System.out.println();
+
+
+        System.out.println("file = " + file);
+        System.out.println("file.exists() = " + file.exists());
+        File fileFromClasspathURL = new File(jarURL.getFile());
+        System.out.println("fileFromClasspathURL = " + fileFromClasspathURL);
+        System.out.println("fileFromClasspathURL.exists() = " + fileFromClasspathURL.exists());
+
+//        try {
+//            InputStream inputStream = jarURL.openStream();
+//
+//            String textFromFile = IOUtils.toString(inputStream, "utf8");
+//            System.out.println("textFromFile = \n" + textFromFile);
+//
+//            FileUtils.write(new File(file.getAbsolutePath()+".copy"), textFromFile, "utf8");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        URL urlFromFileWithBlank = Pipeline.class.getResource("/stop words.txt");
+        File fileWithBlank = new File(urlFromFileWithBlank.getFile());
+        System.out.println("fileWithBlank = " + fileWithBlank);
+        System.out.println("fileWithBlank.exists() = " + fileWithBlank.exists());
     }
 }
